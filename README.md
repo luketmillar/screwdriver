@@ -141,7 +141,7 @@ Contained herein are the following utilities:
 
 # LinkedHashMap
 
-An ordered HashMap. This version lets you add a MAX length of the list. Can be used as an LRU Cache.
+An ordered HashMap.
 
 ### .clear()
 > Empties the entire hashmap
