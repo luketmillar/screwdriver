@@ -104,6 +104,28 @@ Contained herein are the following utilities:
 > [null].isEmpty(); // false
 > ```
 
+***
+
+### .peek() 
+> Returns the element from the top of the stack without removing it
+> #### Returns
+> **object** - Element at the top of the stack. Null if the stack is empty.
+> ```
+> [1, 2, 3, 4].peek(); // 4
+> [].peek(); // null
+> ```
+
+***
+
+### .search( object ) 
+> Finds the 1-based index of the object in the stack.
+> #### Returns
+> **int** - 1-based index of the object in the stack calculated from the top of the stack. -1 if the item is not found in the stack.
+> ```
+> [1, 2, 1, 3].search(3); // 1
+> [1, 2, 1, 3].search(1); // 2
+> [1, 2, 1, 3].search(0); // -1
+> ```
 
 # Object.prototype
 
