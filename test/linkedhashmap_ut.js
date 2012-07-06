@@ -23,8 +23,8 @@
             assert.isTrue(_lhm.containsKey('b'));
             assert.areEqual(_lhm.get('a'), a_val);
             assert.areEqual(_lhm.get('b'), b_val);
-            assert.areEqual(_lhm._peekMostRecent(), b_val);
-            assert.areEqual(_lhm._peekLeastRecent(), a_val);
+            assert.areEqual(_lhm.peekLast(), b_val);
+            assert.areEqual(_lhm.peekFirst(), a_val);
             
             var prev_value = _lhm.put('a', b_val);
             assert.areEqual(_lhm.size(), 2);
@@ -35,16 +35,16 @@
             assert.areEqual(_lhm.get('b'), b_val);
             
             _lhm.put('a', a_val);
-            assert.areEqual(_lhm._peekMostRecent(), a_val);
-            assert.areEqual(_lhm._peekLeastRecent(), b_val);
+            assert.areEqual(_lhm.peekLast(), a_val);
+            assert.areEqual(_lhm.peekFirst(), b_val);
             
             _lhm = new LinkedHashMap(2);
             _lhm.put('a', 'a_val');
             _lhm.put('b', 'b_val');
             _lhm.put('c', 'c_val');
             assert.areEqual(_lhm.size(), 2);
-            assert.areEqual(_lhm._peekMostRecent(), 'c_val');
-            assert.areEqual(_lhm._peekLeastRecent(), 'b_val');
+            assert.areEqual(_lhm.peekLast(), 'c_val');
+            assert.areEqual(_lhm.peekFirst(), 'b_val');
         };
         
         this.test_remove = function() {
@@ -53,7 +53,7 @@
             _lhm.put('b', 'b_val');
             _lhm.put('c', 'c_val');
             assert.areEqual(_lhm.size(), 3);
-            assert.areEqual(_lhm._peekMostRecent(), 'c_val');
+            assert.areEqual(_lhm.peekLast(), 'c_val');
             
             // remove non-existant item
             _lhm.remove('d');
@@ -67,24 +67,24 @@
             assert.areEqual(_lhm.get('a'), 'a_val');
             assert.areEqual(_lhm.get('c'), 'c_val');
             
-            // remove least recent
+            // remove head
             _lhm.remove('a');
             assert.areEqual(_lhm.size(), 1);
             assert.isFalse(_lhm.containsKey('a'));
             assert.isNullOrUndefined(_lhm.get('a'));
             assert.areEqual(_lhm.get('c'), 'c_val');
-            assert.areEqual(_lhm._peekMostRecent(), _lhm.get('c'));
-            assert.areEqual(_lhm._peekLeastRecent(), _lhm.get('c'));
+            assert.areEqual(_lhm.peekLast(), _lhm.get('c'));
+            assert.areEqual(_lhm.peekFirst(), _lhm.get('c'));
             
-            // remove most recent
+            // remove tail
             _lhm.put('a', 'a_val');
             _lhm.remove('a');
             assert.areEqual(_lhm.size(), 1);
             assert.isFalse(_lhm.containsKey('a'));
             assert.isNullOrUndefined(_lhm.get('a'));
             assert.areEqual(_lhm.get('c'), 'c_val');
-            assert.areEqual(_lhm._peekMostRecent(), _lhm.get('c'));
-            assert.areEqual(_lhm._peekLeastRecent(), _lhm.get('c'));
+            assert.areEqual(_lhm.peekLast(), _lhm.get('c'));
+            assert.areEqual(_lhm.peekFirst(), _lhm.get('c'));
             
             // remove only item
             _lhm.remove('c');
@@ -241,6 +241,45 @@
             assert.isFalse(_lhm.containsKey('a'));
             assert.isFalse(_lhm.containsKey('b'));
             assert.isFalse(_lhm.containsKey('c'));
+        };
+        
+        this.test_peekFirst = function() {
+            assert.isNull(_lhm.peekFirst());
+            
+            _lhm.put('a', 'a_val');
+            assert.areEqual(_lhm.peekFirst(), 'a_val');
+            
+            _lhm.put('b', 'b_val');
+            assert.areEqual(_lhm.peekFirst(), 'a_val');
+            
+            _lhm.remove('a');
+            assert.areEqual(_lhm.peekFirst(), 'b_val');
+        };
+        
+        this.test_peekLast = function() {
+            assert.isNull(_lhm.peekLast());
+            
+            _lhm.put('a', 'a_val');
+            assert.areEqual(_lhm.peekLast(), 'a_val');
+            
+            _lhm.put('b', 'b_val');
+            assert.areEqual(_lhm.peekLast(), 'b_val');
+            
+            _lhm.remove('b');
+            assert.areEqual(_lhm.peekLast(), 'a_val');
+        };
+        
+        this.test_values = function() {
+            // set up the scenario
+            _lhm.put('a', 'a_val');
+            _lhm.put('b', 'b_val');
+            _lhm.put('c', 'c_val');
+            
+            var values = _lhm.values();
+            assert.areEqual(values.length, _lhm.size());
+            assert.areEqual(values[0], 'a_val');
+            assert.areEqual(values[1], 'b_val');
+            assert.areEqual(values[2], 'c_val');
         };
     };
 })();

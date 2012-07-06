@@ -1,6 +1,6 @@
 # screwdriver.js
 
-Over the last few years. I found that it didn't matter which project I was working on, I was rewriting the same functions over and over again. Enough of that.
+Over the last few years. I found that it didn't matter which project I was working on, I was rewriting a few functions over and over again. Enough of that.
 
 ### Introducing screwdriver.js
 

@@ -1,7 +1,7 @@
 (function() {
     window.LinkedHashMap = function(max_size) {
-        var _mostRecent = null;
-        var _leastRecent = null;
+        var _tail = null;
+        var _head = null;
         var _key_to_node = {};
         var _size = 0;
         var _max_size = !!max_size ? max_size : 0;
@@ -15,8 +15,8 @@
         //  }
             
         this.clear = function() {
-            _mostRecent = null;
-            _leastRecent = null;
+            _tail = null;
+            _head = null;
             _key_to_node = {};
             _size = 0;
         };
@@ -31,9 +31,9 @@
         };
         
         this.put = function(key, value) {
-            if (_max_size > 0 && !_key_to_node[key] && _size === _max_size && !!_leastRecent) {
+            if (_max_size > 0 && !_key_to_node[key] && _size === _max_size && !!_head) {
                 // the cache is full so we remove the oldest entry before adding a new one
-                this.remove(_leastRecent.key);
+                this.remove(_head.key);
             }
             
             // If this key existed before, we should replace it. We remove and then add it back to the end of the list.
@@ -43,13 +43,13 @@
             _key_to_node[key] = node;
             _size++;
             
-            if (!_mostRecent) {
-                _mostRecent = _leastRecent = node;
+            if (!_head) {
+                _tail = _head = node;
             }
             else {
-                node.next = _mostRecent;
-                _mostRecent.previous = node;
-                _mostRecent = node;
+                _tail.next = node;
+                node.previous = _tail;
+                _tail = node;
             }
             
             return prev_value;
@@ -60,19 +60,19 @@
             
             if (!node) return null;
             
-            if (_mostRecent === node && _leastRecent === node) {
+            if (_tail === node && _head === node) {
                 // removing the only element
-                _mostRecent = _leastRecent = null;
+                _tail = _head = null;
             }
-            else if (_mostRecent === node) {
-                // removing the mostRecent
-                _mostRecent.next.previous = null;
-                _mostRecent = _mostRecent.next;
+            else if (_tail === node) {
+                // removing the tail
+                _tail.previous.next = null;
+                _tail = _tail.previous;
             }
-            else if (_leastRecent === node) {
-                // removing the leastRecent
-                _leastRecent.previous.next = null;
-                _leastRecent = _leastRecent.previous;
+            else if (_head === node) {
+                // removing the head
+                _head.next.previous = null;
+                _head = _head.next;
             }
             else {
                 var previous = node.previous;
@@ -95,12 +95,24 @@
             return _size === 0;
         };
         
-        this._peekMostRecent = function() {
-            return !!_mostRecent ? _mostRecent.value : null;
+        this.values = function() {
+            var values = [];
+            
+            var n = _head;
+            while (n) {
+                values.push(n.value);
+                n = n.next;
+            }
+            
+            return values;
         };
         
-        this._peekLeastRecent = function() {
-            return !!_leastRecent ? _leastRecent.value : null;
+        this.peekLast = function() {
+            return !!_tail ? _tail.value : null;
+        };
+        
+        this.peekFirst = function() {
+            return !!_head ? _head.value : null;
         };
         
         function createNode(key, value, next, previous) {
