@@ -98,7 +98,7 @@
             }
             
             // If this key existed before, we should replace it. We remove and then add it back to the end of the list.
-            this.remove(key);
+            var prev_value = this.remove(key);
             
             var node = createNode(key, value);
             _key_to_node[key] = node;
@@ -113,13 +113,13 @@
                 _mostRecent = node;
             }
             
-            return value;
+            return prev_value;
         };
         
         this.remove = function(key) {
             var node = _key_to_node[key];
             
-            if (!node) return;
+            if (!node) return null;
             
             if (_mostRecent === node && _leastRecent === node) {
                 // removing the only element
@@ -145,7 +145,7 @@
             delete _key_to_node[key];
             _size--;
             
-            return node;
+            return node.value;
         };
         
         this.size = function() {

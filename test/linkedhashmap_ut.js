@@ -26,10 +26,11 @@
             assert.areEqual(_lhm._peekMostRecent(), b_val);
             assert.areEqual(_lhm._peekLeastRecent(), a_val);
             
-            _lhm.put('a', b_val);
+            var prev_value = _lhm.put('a', b_val);
             assert.areEqual(_lhm.size(), 2);
             assert.isTrue(_lhm.containsKey('a'));
             assert.isTrue(_lhm.containsKey('b'));
+            assert.areEqual(prev_value, a_val);
             assert.areEqual(_lhm.get('a'), b_val);
             assert.areEqual(_lhm.get('b'), b_val);
             
