@@ -107,7 +107,7 @@ Contained herein are the following utilities:
 ***
 
 ### .peek() 
-> Returns the element from the top of the stack without removing it
+> Returns the element at the top of the stack without removing it
 > #### Returns
 > **object** - Element at the top of the stack. Null if the stack is empty.
 > ```
