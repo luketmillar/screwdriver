@@ -27,5 +27,18 @@
             assert.isFalse([1,2].isEmpty());
             assert.isFalse([1].isEmpty());
         };
+        
+        this.test_ARRAY_peek = function() {
+            assert.areEqual([1, 2, 3].peek(), 3);
+            assert.areEqual(['a'].peek(), 'a');
+            assert.isNullOrUndefined([].peek());
+        };
+        
+        this.test_ARRAY_search = function(obj) {
+            assert.areEqual([1, 2, 3].search(3), 1);
+            assert.areEqual([1, 2, 3].search(2), 2);
+            assert.areEqual([1, 2, 3].search(1), 3);
+            assert.areEqual([1, 2, 3].search(0), -1);
+        };
     };
 })();

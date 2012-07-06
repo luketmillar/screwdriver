@@ -43,4 +43,17 @@
     Array.prototype.isEmpty = function() {
         return this.length === 0;
     };
+    
+    Array.prototype.peek = function() {
+        return this.isEmpty() ? null : this[this.length - 1];
+    };
+    
+    Array.prototype.search = function(obj) {
+        for (var i = this.length - 1; i >= 0; i--) {
+            if (this[i] === obj)
+                return this.length - i;
+        }
+    
+        return -1;
+    };
 })();
