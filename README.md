@@ -152,6 +152,8 @@ An ordered HashMap.
 > lhm.size(); // 0
 > ```
 
+***
+
 ### .size()
 > Gets the number of elements in the hashmap
 > #### Returns
@@ -161,6 +163,8 @@ An ordered HashMap.
 > lhm.put('key', 'value');
 > lhm.size(); // 1
 > ```
+
+***
 
 ### .isEmpty()
 > Determines if there are zero elements in the hashmap
@@ -173,6 +177,8 @@ An ordered HashMap.
 > lhm.clear();
 > lhm.isEmpty(); // true
 > ```
+
+***
 
 ### .put( key, value )
 > Adds a key and value pair to the hashmap. The elements in the hashmap are stored in the order they were added.
@@ -188,6 +194,8 @@ An ordered HashMap.
 > lhm.size(); // 1
 > ```
 
+***
+
 ### .remove( key )
 > Removes the value associated with this key.
 > #### Arguments
@@ -199,6 +207,8 @@ An ordered HashMap.
 > lhm.get('key'); // 'value'
 > lhm.get('key2'); // null
 > ```
+
+***
 
 ### .get( key )
 > Gets the value associate with this key, or null if there is no mapping for the key.
@@ -212,6 +222,8 @@ An ordered HashMap.
 > lhm.get('key2'); // null
 > ```
 
+***
+
 ### .containsKey( key )
 > Determines if there is a value mapping for this key in the hashmap.
 > #### Arguments
@@ -223,4 +235,50 @@ An ordered HashMap.
 > lhm.put('key', 'value');
 > lhm.containsKey('key'); // true
 > lhm.containsKey('key2'); // false
+> ```
+
+***
+
+### .peekFirst()
+> Retrieves the first value added to the hashmap
+> #### Returns
+> **object** - the first value added to the hashmap or null if the hashmap is empty
+> ```
+> lhm.peekFirst(); // null
+> lhm.put('key', 'value');
+> lhm.peekFirst(); // 'value'
+> lhm.put('key2', 'value2');
+> lhm.peekFirst(); // 'value'
+> lhm.remove('key');
+> lhm.peekFirst(); // 'value2'
+> ```
+
+***
+
+### .peekLast()
+> Retrieves the last value added to the hashmap
+> #### Returns
+> **object** - the last value added to the hashmap or null if the hashmap is empty
+> ```
+> lhm.peekLast(); // null
+> lhm.put('key', 'value');
+> lhm.peekLast(); // 'value'
+> lhm.put('key2', 'value2');
+> lhm.peekLast(); // 'value2'
+> lhm.remove('key2');
+> lhm.peekLast(); // 'value'
+> ```
+
+***
+
+### .values()
+> Retrieves an ordered list of the added values
+> #### Returns
+> **array** - the ordered list of the added values
+> ```
+> lhm.values(); // []
+> lhm.put('key', 'value');
+> lhm.put('key2', 'value2');
+> lhm.put('key3', 'value3');
+> lhm.values(); // ['value', 'value2', 'value3']
 > ```
