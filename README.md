@@ -1,4 +1,4 @@
-Over the last few years, I found that it didn't matter which project I was working on, there were a few functions that I was writing over and over again. Enough of that.
+I've found that it doesn't matter what project I'm working on, there are a few utilities that I always need and end up writing over and over again. Enough of that.
 
 ### Introducing screwdriver.js
 
