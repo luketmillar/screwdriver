@@ -106,6 +106,10 @@
         return assert(actual === expected, 'areEqual', actual, expected);
     };
     
+    a.areNotEqual = function(actual, expected) {
+        return assert(actual !== expected, 'areNotEqual', actual, expected);
+    };
+    
     function assert (condition, test, a, b) {
         var result = 'passed';
         if (condition === false) {

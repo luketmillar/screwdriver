@@ -154,11 +154,60 @@ screwdriver.js contains the following utilities:
 ### .isEmpty() 
 > Determines whether the object has any children.
 > #### Returns
-> **bool** - Whether or not the array has any elements.
+> **bool** - Whether or not the object has any elements.
 > ```
 > {}.isEmpty(); // true
 > { a: true }.isEmpty(); // false
 > { a: null }.isEmpty(); // false
+> ```
+
+***
+
+### .size() 
+> Determines the number of children the object has
+> #### Returns
+> **int** - The number of children in the object
+> ```
+> {}.size(); // 0
+> { a: 1 }.size(); // 1
+> { a: 1, b: 2 }.size(); // 2
+> ```
+
+***
+
+### .isArray() 
+> Determines if the object is of type array
+> #### Returns
+> **bool** - Whether or not the object is an array
+> ```
+> [].isArray(); // true
+> {}.isArray(); // false
+> ```
+
+***
+
+### .isIdenticalTo( obj ) 
+> Determines if the object is identical to **obj**
+> #### Arguments
+> **obj** - The compare object.
+> #### Returns
+> **bool** - Whether or not the two objects have identical values. This is a recursive check.
+> ```
+> {}.isIdenticalTo({}); // true
+> { a: 1 }.isIdenticalTo({ a: 1 }); // true
+> { a: 1, b: 2 }.isIdenticalTo({ a: 1 }); // false
+> ```
+
+***
+
+### .duplicate() 
+> Creates a new object with identical recursive properties
+> #### Returns
+> **object** - A new object with all of the property values copied. The object is completely duplicated in memory.
+> ```
+> var a = { a: 1 }.duplicate();
+> a.isIdenticalTo({ a: 1 }); // true
+> a === { a: 1 }; // false
 > ```
 
 # LinkedHashMap
