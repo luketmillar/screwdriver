@@ -29,13 +29,13 @@
             assert.areEqual('{0}{1}'.format('{1}', '{0}'), '{1}{0}');
         };
         
-        this.test_STRING_isEmail = function() {
-            assert.isTrue('screw@driver.com'.isEmail());
-            assert.isFalse('screwdriver'.isEmail());
-            assert.isFalse('@screwdriver.com'.isEmail());
-            assert.isFalse('screwdriver.com'.isEmail());
-            assert.isFalse('screw@driver'.isEmail());
-            assert.isFalse(''.isEmail());
+        this.test_STRING_isEmailAddress = function() {
+            assert.isTrue('screw@driver.com'.isEmailAddress());
+            assert.isFalse('screwdriver'.isEmailAddress());
+            assert.isFalse('@screwdriver.com'.isEmailAddress());
+            assert.isFalse('screwdriver.com'.isEmailAddress());
+            assert.isFalse('screw@driver'.isEmailAddress());
+            assert.isFalse(''.isEmailAddress());
         };
         
         this.test_STRING_isPhoneNumber = function() {

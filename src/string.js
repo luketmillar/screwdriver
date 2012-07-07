@@ -12,7 +12,7 @@
         return this.replace(/\{([0-9]+)\}/g, function (_, i) { return args[i]; });
     };
     
-    String.prototype.isEmail = function() {
+    String.prototype.isEmailAddress = function() {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(this);
     };

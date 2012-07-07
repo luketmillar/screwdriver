@@ -8,7 +8,7 @@ screwdriver.js contains the following utilities:
 * startsWith
 * endsWith
 * format
-* isEmail
+* isEmailAddress
 * isPhoneNumber
 
 #### Array
@@ -71,14 +71,14 @@ screwdriver.js contains the following utilities:
 
 ***
 
-### .isEmail() 
+### .isEmailAddress() 
 > Validates that the string is a properly formatted email address.
 > #### Returns
 > **bool** - Whether or not the string is a valid email address
 
 > ```
-> 'screw@driver.com'.isEmail(); // true
-> 'screwdriver.com'.isEmail(); // false
+> 'screw@driver.com'.isEmailAddress(); // true
+> 'screwdriver.com'.isEmailAddress(); // false
 > ```
 
 ***
