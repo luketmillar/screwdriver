@@ -59,9 +59,16 @@
             }
         }
         
-        console.log((_total_tests - _failed_tests) + '/' + _total_tests + ' tests passed');
-        console.log((_total_asserts - _failed_asserts) + '/' + _total_asserts + ' asserts passed');
-        
+        if (_failed_asserts > 0) {            
+            console.log('\nFAILED');
+            console.log('   ' + _failed_tests + ' tests');
+            console.log('   ' + _failed_asserts + ' asserts');
+        }
+        else {
+            console.log('\nPASSED');
+            console.log('   ' + _total_tests + ' tests');
+            console.log('   ' + _total_asserts + ' asserts');
+        }        
         _running_uts = false;
     };
     

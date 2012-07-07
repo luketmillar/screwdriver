@@ -39,7 +39,11 @@
             // If this key existed before, we should replace it. We remove and then add it back to the end of the list.
             var prev_value = this.remove(key);
             
-            var node = createNode(key, value);
+            var node = {
+                key: key,
+                value: value
+            };
+            
             _key_to_node[key] = node;
             _size++;
             
@@ -114,14 +118,5 @@
         this.peekFirst = function() {
             return !!_head ? _head.value : null;
         };
-        
-        function createNode(key, value, next, previous) {
-            return {
-                key: key,
-                value: value,
-                next: next,
-                previous: previous
-            };
-        }
     };
 })();

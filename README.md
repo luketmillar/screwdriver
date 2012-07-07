@@ -25,8 +25,8 @@ Contained herein are the following utilities:
 > #### Returns
 > **bool** - Whether or not the string starts with **str**.
 > ```
-> "screwdriver".startsWith("screw"); // true
-> "screwdriver".startWith("bolt"); // false
+> 'screwdriver'.startsWith('screw'); // true
+> 'screwdriver'.startWith('bolt'); // false
 > ```
 
 ***
@@ -38,8 +38,8 @@ Contained herein are the following utilities:
 > #### Returns
 > **bool** - Whether or not the string ends with **str**.
 > ```
-> "screwdriver".endsWith("driver"); // true
-> "screwdriver".endsWith("passenger"); // false
+> 'screwdriver'.endsWith('driver'); // true
+> 'screwdriver'.endsWith('passenger'); // false
 > ```
 
 ***
@@ -53,8 +53,34 @@ Contained herein are the following utilities:
 > **string** - The formatted string with all of the placeholders filled in with values.
 
 > ```
-> "I like {0} and {1}.".format("apples", "bananas"); // "I like apples and bananas."
-> "I like {0} and {1}. She just likes {0}.".format("apples", "bananas"); // "I like apples and bananas. She just likes apples."
+> 'I like {0} and {1}.'.format('apples', 'bananas'); // 'I like apples and bananas.'
+> 'I like {0} and {1}. She just likes {0}.'.format('apples', 'bananas'); // 'I like apples and bananas. She just likes apples.'
+> ```
+
+***
+
+### .isEmail() 
+> Validates that the string is a properly formatted email address.
+> #### Returns
+> **bool** - Whether or not the string is a valid email address
+
+> ```
+> 'screw@driver.com'.isEmail(); // true
+> 'screwdriver.com'.isEmail(); // false
+> ```
+
+***
+
+### .isPhoneNumber() 
+> Validates that the string is a properly formatted phone number.
+> #### Returns
+> **bool** - Whether or not the string is a valid phone number
+
+> ```
+> '555 555 5555'.isPhoneNumber(); // true
+> '(555) 555-5555'.isPhoneNumber(); // true
+> '555-555-5555'.isPhoneNumber(); // true
+> '55 55 55 55 55'.isPhoneNumber(); // false
 > ```
 
 # Array.prototype

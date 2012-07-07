@@ -113,7 +113,11 @@
             // If this key existed before, we should replace it. We remove and then add it back to the end of the list.
             var prev_value = this.remove(key);
             
-            var node = createNode(key, value);
+            var node = {
+                key: key,
+                value: value
+            };
+            
             _key_to_node[key] = node;
             _size++;
             
@@ -188,15 +192,6 @@
         this.peekFirst = function() {
             return !!_head ? _head.value : null;
         };
-        
-        function createNode(key, value, next, previous) {
-            return {
-                key: key,
-                value: value,
-                next: next,
-                previous: previous
-            };
-        }
     };
 })();
 (function() {
@@ -221,15 +216,25 @@
     };
 })();(function() {
     String.prototype.startsWith = function(str) {
-        return (this.match("^"+str)==str)
+        return (this.match('^'+str)==str);
     };
     
     String.prototype.endsWith = function(str) {
-        return (this.match(str+"$")==str)
+        return (this.match(str+'$')==str);
     };
 
     String.prototype.format = function() {
         var args = arguments;
         return this.replace(/\{([0-9]+)\}/g, function (_, i) { return args[i]; });
-    }
+    };
+    
+    String.prototype.isEmail = function() {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(this);
+    };
+    
+    String.prototype.isPhoneNumber = function() {
+        var re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        return re.test(this);
+    };
 })();
