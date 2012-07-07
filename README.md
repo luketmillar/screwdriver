@@ -4,10 +4,27 @@ Over the last few years, I found that it didn't matter which project I was worki
 
 screwdriver.js contains the following utilities:
 
-#### Extension Methods
-* String
-* Array
-* Object
+#### String
+* startsWith
+* endsWith
+* format
+* isEmail
+* isPhoneNumber
+
+#### Array
+* shuffle
+* max
+* min
+* isEmpty
+* peek
+* search
+
+#### Object
+* isIdenticalTo
+* duplicate
+* isArray
+* isEmpty
+* size
 
 #### Data Structures
 * LinkedHashMap
