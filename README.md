@@ -39,7 +39,6 @@ screwdriver.js contains the following utilities:
 > **bool** - Whether or not the string starts with **str**.
 > ```
 > 'screwdriver'.startsWith('screw'); // true
-> 'screwdriver'.startWith('bolt'); // false
 > ```
 
 ***
@@ -52,7 +51,6 @@ screwdriver.js contains the following utilities:
 > **bool** - Whether or not the string ends with **str**.
 > ```
 > 'screwdriver'.endsWith('driver'); // true
-> 'screwdriver'.endsWith('passenger'); // false
 > ```
 
 ***
