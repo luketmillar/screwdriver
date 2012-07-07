@@ -66,7 +66,7 @@ screwdriver.js contains the following utilities:
 > **string** - The formatted string with all of the placeholders filled in with values.
 
 > ```
-> '{0} out of {1}.'.format(8, 10); // '8 out of 10.'
+> '{0} out of {1}'.format(8, 10); // '8 out of 10'
 > ```
 
 ***
@@ -78,7 +78,6 @@ screwdriver.js contains the following utilities:
 
 > ```
 > 'screw@driver.com'.isEmailAddress(); // true
-> 'screwdriver.com'.isEmailAddress(); // false
 > ```
 
 ***
@@ -92,7 +91,6 @@ screwdriver.js contains the following utilities:
 > '555 555 5555'.isPhoneNumber(); // true
 > '(555) 555-5555'.isPhoneNumber(); // true
 > '555-555-5555'.isPhoneNumber(); // true
-> '55 55 55 55 55'.isPhoneNumber(); // false
 > ```
 
 # Array.prototype
@@ -112,9 +110,7 @@ screwdriver.js contains the following utilities:
 > #### Returns
 > **object** - The max value of the array.
 > ```
-> [1, 2, 3, 4].max(); // 4
-> [-3, -2, -5].max(); // -2
-> ['a', 'b', 'c'].max(); // 'c'
+> [2, 4, 1, 3].max(); // 4
 > ```
 
 ***
@@ -124,9 +120,7 @@ screwdriver.js contains the following utilities:
 > #### Returns
 > **object** - The min value of the array.
 > ```
-> [1, 2, 3, 4].min(); // 1
-> [-3, -2, -5].min(); // -5
-> ['a', 'b', 'c'].min(); // 'a'
+> [2, 4, 1, 3].min(); // 1
 > ```
 
 ***
@@ -137,9 +131,6 @@ screwdriver.js contains the following utilities:
 > **bool** - Whether or not the array has any elements.
 > ```
 > [].isEmpty(); // true
-> [1, 2, 3, 4].isEmpty(); // false
-> [1].isEmpty(); // false
-> [null].isEmpty(); // false
 > ```
 
 ***
@@ -150,7 +141,6 @@ screwdriver.js contains the following utilities:
 > **object** - Element at the top of the stack. Null if the stack is empty.
 > ```
 > [1, 2, 3, 4].peek(); // 4
-> [].peek(); // null
 > ```
 
 ***
@@ -174,9 +164,7 @@ screwdriver.js contains the following utilities:
 > #### Returns
 > **bool** - Whether or not the two objects have identical values. This is a recursive check.
 > ```
-> {}.isIdenticalTo({}); // true
 > { a: 1 }.isIdenticalTo({ a: 1 }); // true
-> { a: 1, b: 2 }.isIdenticalTo({ a: 1 }); // false
 > ```
 
 ***
@@ -199,8 +187,6 @@ screwdriver.js contains the following utilities:
 > **bool** - Whether or not the object has any elements.
 > ```
 > {}.isEmpty(); // true
-> { a: true }.isEmpty(); // false
-> { a: null }.isEmpty(); // false
 > ```
 
 ***
@@ -210,8 +196,6 @@ screwdriver.js contains the following utilities:
 > #### Returns
 > **int** - The number of children in the object
 > ```
-> {}.size(); // 0
-> { a: 1 }.size(); // 1
 > { a: 1, b: 2 }.size(); // 2
 > ```
 
