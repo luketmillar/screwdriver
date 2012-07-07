@@ -151,6 +151,32 @@ screwdriver.js contains the following utilities:
 
 # Object.prototype
 
+### .isIdenticalTo( obj ) 
+> Determines if the object is identical to **obj**
+> #### Arguments
+> **obj** - The compare object.
+> #### Returns
+> **bool** - Whether or not the two objects have identical values. This is a recursive check.
+> ```
+> {}.isIdenticalTo({}); // true
+> { a: 1 }.isIdenticalTo({ a: 1 }); // true
+> { a: 1, b: 2 }.isIdenticalTo({ a: 1 }); // false
+> ```
+
+***
+
+### .duplicate() 
+> Creates a new object with identical recursive properties
+> #### Returns
+> **object** - A new object with all of the property values copied. The object is completely duplicated in memory.
+> ```
+> var a = { a: 1 }.duplicate();
+> a.isIdenticalTo({ a: 1 }); // true
+> a === { a: 1 }; // false
+> ```
+
+***
+
 ### .isEmpty() 
 > Determines whether the object has any children.
 > #### Returns
@@ -182,32 +208,6 @@ screwdriver.js contains the following utilities:
 > ```
 > [].isArray(); // true
 > {}.isArray(); // false
-> ```
-
-***
-
-### .isIdenticalTo( obj ) 
-> Determines if the object is identical to **obj**
-> #### Arguments
-> **obj** - The compare object.
-> #### Returns
-> **bool** - Whether or not the two objects have identical values. This is a recursive check.
-> ```
-> {}.isIdenticalTo({}); // true
-> { a: 1 }.isIdenticalTo({ a: 1 }); // true
-> { a: 1, b: 2 }.isIdenticalTo({ a: 1 }); // false
-> ```
-
-***
-
-### .duplicate() 
-> Creates a new object with identical recursive properties
-> #### Returns
-> **object** - A new object with all of the property values copied. The object is completely duplicated in memory.
-> ```
-> var a = { a: 1 }.duplicate();
-> a.isIdenticalTo({ a: 1 }); // true
-> a === { a: 1 }; // false
 > ```
 
 # LinkedHashMap
