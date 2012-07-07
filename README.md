@@ -49,8 +49,7 @@ screwdriver.js contains the following utilities:
 > **string** - The formatted string with all of the placeholders filled in with values.
 
 > ```
-> 'I like {0} and {1}.'.format('apples', 'bananas'); // 'I like apples and bananas.'
-> 'I like {0} and {1}. She just likes {0}.'.format('apples', 'bananas'); // 'I like apples and bananas. She just likes apples.'
+> '{0} out of {1}.'.format(8, 10); // '8 out of 10.'
 > ```
 
 ***
