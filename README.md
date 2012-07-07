@@ -1,12 +1,8 @@
-# screwdriver.js
-
-Over the last few years. I found that it didn't matter which project I was working on, I was rewriting a few functions over and over again. Enough of that.
+Over the last few years, I found that it didn't matter which project I was working on, there were a few functions that I was writing over and over again. Enough of that.
 
 ### Introducing screwdriver.js
 
-Screwdriver.js is a grabbag of JavaScript utilities.
-
-Contained herein are the following utilities:
+screwdriver.js contains the following utilities:
 
 #### Extension Methods
 * String
